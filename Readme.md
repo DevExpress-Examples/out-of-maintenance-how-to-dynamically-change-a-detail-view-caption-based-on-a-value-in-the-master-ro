@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/Q182806/Form1.cs) (VB: [Form1.vb](./VB/Q182806/Form1.vb))
+* [MyGridView.cs](./CS/Q182806/MyGridView.cs) (VB: [MyGridView.vb](./VB/Q182806/MyGridView.vb))
+* [Program.cs](./CS/Q182806/Program.cs) (VB: [Program.vb](./VB/Q182806/Program.vb))
+<!-- default file list end -->
 # How to dynamically change a detail view caption based on a value in the master row
 
 
