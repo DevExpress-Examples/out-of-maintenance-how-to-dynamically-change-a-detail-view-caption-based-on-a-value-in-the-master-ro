@@ -58,13 +58,12 @@ namespace Q182806
 
         protected override void ZoomView(BaseView prevView)
         {
-
             base.ZoomView(prevView);
-            ((MyGridView)ParentView).PopulateTabMasterData(true, this);
+            ((MyGridView)ParentView).MyPopulateTabMasterData(true, this);
             TabControl.LayoutChanged();
         }
 
-        public void PopulateTabMasterData(bool isViewZoomed, BaseView view)
+        public void MyPopulateTabMasterData(bool isViewZoomed, BaseView view)
         {
             FieldInfo fi = typeof(BaseView).GetField("tabControl", BindingFlags.Instance | BindingFlags.NonPublic);
             ViewTab tab = (ViewTab)fi.GetValue(view);
@@ -74,7 +73,7 @@ namespace Q182806
         public override void NormalView()
         {
             base.NormalView();
-            ((MyGridView)ParentView).PopulateTabMasterData(false, this);
+            ((MyGridView)ParentView).MyPopulateTabMasterData(false, this);
             TabControl.LayoutChanged();
         }
     }

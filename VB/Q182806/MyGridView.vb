@@ -62,14 +62,13 @@ Namespace Q182806
 			Next page
 		End Sub
 
-		Protected Overrides Overloads Sub ZoomView(ByVal prevView As BaseView)
-
+		Protected Overrides Sub ZoomView(ByVal prevView As BaseView)
 			MyBase.ZoomView(prevView)
-			CType(ParentView, MyGridView).PopulateTabMasterData(True, Me)
+			CType(ParentView, MyGridView).MyPopulateTabMasterData(True, Me)
 			TabControl.LayoutChanged()
 		End Sub
 
-		Public Overloads Sub PopulateTabMasterData(ByVal isViewZoomed As Boolean, ByVal view As BaseView)
+		Public Sub MyPopulateTabMasterData(ByVal isViewZoomed As Boolean, ByVal view As BaseView)
 			Dim fi As FieldInfo = GetType(BaseView).GetField("tabControl", BindingFlags.Instance Or BindingFlags.NonPublic)
 			Dim tab As ViewTab = CType(fi.GetValue(view), ViewTab)
 			ExtendTabCaption(tab, CStr((CType(GridControl.MainView, MyGridView)).keyFieldName), isViewZoomed)
@@ -77,7 +76,7 @@ Namespace Q182806
 
 		Public Overrides Sub NormalView()
 			MyBase.NormalView()
-			CType(ParentView, MyGridView).PopulateTabMasterData(False, Me)
+			CType(ParentView, MyGridView).MyPopulateTabMasterData(False, Me)
 			TabControl.LayoutChanged()
 		End Sub
 	End Class
